@@ -81,7 +81,7 @@ export default function SearchAppBar() {
           </IconButton>
           <Typography className={classes.title} variant="h4" noWrap>
             <MailTwoToneIcon />
-                   Gmail
+                   Smail
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
