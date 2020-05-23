@@ -19,7 +19,9 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
+        <Box p={3}
+      
+        >
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -42,7 +44,7 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 2,
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
@@ -58,9 +60,9 @@ export default function ScrollableTabsButtonAuto() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="right" color="default">
+      <AppBar position="center" color="default">
         <Tabs
-          align="right"
+      
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
@@ -74,15 +76,7 @@ export default function ScrollableTabsButtonAuto() {
 
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        Primary
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Social
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Promotions
-      </TabPanel>
+     
     </div>
   );
 }

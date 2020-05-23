@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    paddingLeft: `calc(1em + ${theme.spacing(50)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -72,15 +72,17 @@ export default function SearchAppBar() {
       <AppBar position="static">
         <Toolbar>
           <IconButton
-            edge="start"
+           align="center"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            size="medium" 
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h4" noWrap>
-            <MailTwoToneIcon />
+          
+          <Typography  align="center" className={classes.title} variant="h4" noWrap>
+            <MailTwoToneIcon size="large" />
                    Smail
           </Typography>
           <div className={classes.search}>
