@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 import Drawer from './Drawer';
+import {Grid} from '@material-ui/core';
 
 
 
@@ -8,11 +8,10 @@ import Drawer from './Drawer';
  
 
   return (
-   <div>
-       <Drawer/>
-       
-   </div>
-        
+   <Grid>
+     <Drawer/>
+   </Grid>
+      
   
     
   );

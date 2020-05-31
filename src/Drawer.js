@@ -10,13 +10,22 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MailTwoToneIcon from '@material-ui/icons/MailTwoTone';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import InboxSharpIcon from '@material-ui/icons/InboxSharp';
+import SendIcon from '@material-ui/icons/Send';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ReportIcon from '@material-ui/icons/Report';
+import DataList from './DataList';
+import TabPanelList from './TabPanelList';
+import Avatar from '@material-ui/core/Avatar';
+
 
 const drawerWidth = 240;
 
@@ -26,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: (theme.palette.orange)
   },
   search: {
     position: 'relative',
@@ -34,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginLeft: 0,
+    marginLeft: theme.spacing(6),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
@@ -56,15 +66,28 @@ const useStyles = makeStyles((theme) => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(50)}px)`,
+    paddingLeft: `calc(1em + ${theme.spacing(100)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
+    marginRight: theme.spacing(0),
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '0ch',
       '&:focus': {
-        width: '20ch',
+        width: '10ch',
+       
       },
     },
+  },
+  avatarIcon: {
+    edge:"end",
+    marginLeft: theme.spacing(30),
+  },
+
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  mailIcon: {
+    marginRight: theme.spacing(8),
   },
   drawer: {
     width: drawerWidth,
@@ -78,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
 }));
 
@@ -90,7 +113,7 @@ export default function ClippedDrawer() {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-        <IconButton
+        <IconButton 
            align="center"
             className={classes.menuButton}
             color="inherit"
@@ -98,9 +121,9 @@ export default function ClippedDrawer() {
             size="medium" 
           >
             <MenuIcon />
-          </IconButton>
-          <Typography variant="h4" noWrap>
-          <MailTwoToneIcon size="large" />
+          </IconButton >
+          <Typography variant="h4" className={classes.mailIcon} noWrap>
+          <MailTwoToneIcon  size="Medium"/>
             SMail
           </Typography>
           <div className={classes.search}>
@@ -116,6 +139,9 @@ export default function ClippedDrawer() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+        <Avatar className={classes.avatarIcon} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          
+              
         </Toolbar>
       </AppBar>
       <Drawer
@@ -127,51 +153,69 @@ export default function ClippedDrawer() {
       >
         <Toolbar />
         <div className={classes.drawerContainer}>
+         
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+           
+              <ListItem button>
+                <ListItemIcon>
+                  <InboxSharpIcon />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="Inbox"/>
               </ListItem>
-            ))}
+          
+              <ListItem button>
+                <ListItemIcon>
+                  <StarBorderIcon/>
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="Starred"/>
+              </ListItem>
+
+              <ListItem button>
+                <ListItemIcon>
+                  <SendIcon  />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="Sent"/>
+              </ListItem>
+
+              <ListItem button>
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="Drafts"/>
+              </ListItem>
           </List>
           <Divider />
           <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+          <ListItem button>
+                <ListItemIcon>
+                  <MailIcon/>
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="All Mail"/>
               </ListItem>
-            ))}
+
+              <ListItem button>
+                <ListItemIcon>
+                  <DeleteIcon/>
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="Trash"/>
+              </ListItem>
+
+              <ListItem button>
+                <ListItemIcon>
+                  <ReportIcon />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-inboxsharpicon" primary="Spam"/>
+              </ListItem>
+           
           </List>
         </div>
-      </Drawer>
+      </Drawer>   
       <main className={classes.content}>
+       
         <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </main>
+          <TabPanelList />
+          <DataList />
+      </main>         
     </div>
   );
 }
