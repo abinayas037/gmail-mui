@@ -141,10 +141,11 @@ export default function CustomPaginationActionsTable() {
           ).map((row) => (
             <TableRow key={row.title}>
               <TableCell component="th" scope="row" className={classes.icon}>
-                 
+                  <Checkbox>
                   <CheckBoxOutlineBlankOutlinedIcon size="small"/>
                   <StarBorderIcon />
                   <LabelImportantTwoToneIcon/>
+                  </Checkbox>
               </TableCell>
               <TableCell  >
                 {row.title}

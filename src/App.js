@@ -1,5 +1,5 @@
 import React from 'react';
-import Drawer from './Drawer';
+import Drawer from './Components/Drawer';
 import {Grid} from '@material-ui/core';
 
 
@@ -8,8 +8,10 @@ import {Grid} from '@material-ui/core';
  
 
   return (
-   <Grid>
-     <Drawer/>
+   <Grid container direction="column">
+     <Grid item>
+       <Drawer/>
+      </Grid> 
    </Grid>
       
   
