@@ -1,5 +1,7 @@
+  ## Gmail_Mui
+   Created this project to learn about Material-ui React. In this project i have took gmail page as a sample and created a look a like  responsive gmail page using material-ui. And deployed this code in Netlify.com. Below is the image and deployed code.
 
-'[](Gmail-Mui.png)
+<img width="1439" alt="Gmail-Mui" src="https://user-images.githubusercontent.com/30860608/84959752-f4cbc280-b0cd-11ea-95bc-7ca16970c757.png">
 
 
 https://upbeat-hopper-16a762.netlify.app/
