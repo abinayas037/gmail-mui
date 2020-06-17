@@ -83,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    width:"60ch",
     color: 'inherit',
   },
   inputInput: {
@@ -97,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mailIcon: {
-    marginRight: theme.spacing(6),
+    marginRight: theme.spacing(2),
   },
   sectionDesktop: {
     display: 'none',

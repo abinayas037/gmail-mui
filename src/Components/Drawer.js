@@ -117,7 +117,6 @@ export default function ClippedDrawer() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Grid>
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton 
@@ -154,23 +153,17 @@ export default function ClippedDrawer() {
         >
              <Avatar endge="end" alt="Remy Sharp" src="/static/images/avatar/1.jpg" />  
         </IconButton> 
-        </div>              
+        </div>            
         </Toolbar>
-       </AppBar>
-      </Grid>
-      <Grid>
-        <Hidden/>  
-      </Grid>
-      
-       
-      <main className={classes.content}>
-       
+       </AppBar> 
+        <Hidden/>       
+      <main className={classes.content}>      
       <Toolbar />  
         <Grid item>
           <TabPanelList />
           <DataList />
         </Grid>
-      </main>         
-    </div>
+      </main>     
+    </div> 
   );
 }
